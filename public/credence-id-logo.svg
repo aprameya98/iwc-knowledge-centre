@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 143" fill="none">
+  <!-- Hexagon: 3 visible faces of a 3D cube inside a hex outline -->
+
+  <!-- Left face: orange-red -->
+  <polygon points="12,36 57,10 57,82 12,108" fill="#E05531"/>
+
+  <!-- Right face: teal/cyan -->
+  <polygon points="57,10 102,36 102,108 57,82" fill="#3DBFBF"/>
+
+  <!-- Bottom face: slightly darker teal -->
+  <polygon points="12,108 57,82 102,108 57,134" fill="#2EA8A8"/>
+
+  <!-- Hexagon outline (thin, same color as faces) -->
+  <polygon points="12,36 57,10 102,36 102,108 57,134 12,108" fill="none" stroke="#ccc" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Person silhouette on left face -->
+  <!-- Green circle (head) -->
+  <circle cx="34" cy="42" r="8" fill="#5CB85C"/>
+  <!-- White body rectangle (ID card shape) -->
+  <rect x="22" y="55" width="24" height="30" rx="3" fill="white" opacity="0.92"/>
+  <!-- Small accent square on card -->
+  <rect x="27" y="61" width="14" height="10" rx="2" fill="#E05531" opacity="0.45"/>
+
+  <!-- Right face subtle person hint -->
+  <circle cx="80" cy="42" r="6" fill="white" opacity="0.28"/>
+  <rect x="70" y="53" width="20" height="22" rx="3" fill="white" opacity="0.18"/>
+
+  <!-- CREDENCE ID wordmark -->
+  <!-- Using small-caps style: large C, smaller rest -->
+  <text font-family="'Arial Black', 'Arial', 'Helvetica Neue', sans-serif" font-weight="900" fill="#2E2E2E">
+    <tspan x="124" y="98" font-size="66">C</tspan><tspan font-size="50" dy="-4">REDENCE</tspan>
+    <tspan font-size="66" dx="8" dy="4">ID</tspan>
+  </text>
+</svg>
