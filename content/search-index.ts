@@ -167,49 +167,49 @@ export const searchIndex: SearchItem[] = [
   // Platform
   {
     title: "Tenants",
-    href: "/platform/tenants",
+    href: "/platform/iwc-portal/tenants",
     section: "Platform",
     content: "IwC supports multi-tenant deployments where multiple issuing organizations share a single platform instance with complete data isolation. Each tenant has its own configuration, templates, SOR connections, and reviewer teams."
   },
   {
     title: "Issuers",
-    href: "/platform/issuers",
+    href: "/platform/iwc-portal/issuers",
     section: "Platform",
     content: "Issuer management and configuration within the IwC platform. Manage issuing organizations, their credentials, and authorization settings."
   },
   {
     title: "Templates",
-    href: "/platform/templates",
+    href: "/platform/iwc-portal/templates",
     section: "Platform",
     content: "Credential templates define the structure, attributes, and visual appearance of issued credentials. Administrators create and manage templates through the IwC admin console."
   },
   {
     title: "ID Applications",
-    href: "/platform/id-applications",
+    href: "/platform/iwc-portal/id-applications",
     section: "Platform",
     content: "Track and manage identity applications submitted through the platform. View application status, review history, and manage workflows."
   },
   {
     title: "Digital Credentials",
-    href: "/platform/digital-credentials",
+    href: "/platform/iwc-portal/digital-credentials",
     section: "Platform",
     content: "Manage issued digital credentials including status tracking, revocation, renewal, and lifecycle management."
   },
   {
     title: "Trust Management",
-    href: "/platform/trust-management",
+    href: "/platform/iwc-portal/trust-management",
     section: "Platform",
     content: "Configure trust frameworks, trusted registries, and verification policies for credential issuance and verification."
   },
   {
     title: "Analytics",
-    href: "/platform/analytics",
+    href: "/platform/iwc-portal/analytics",
     section: "Platform",
     content: "Platform analytics and reporting for enrollment volumes, approval rates, processing times, and reviewer performance. Reports can be filtered by date range, document type, and tenant."
   },
   {
     title: "API Explorer",
-    href: "/platform/api-explorer",
+    href: "/platform/iwc-portal/api-explorer",
     section: "Platform",
     content: "The API Explorer provides an interactive interface for testing IwC API endpoints. You can make live API calls, see request and response formats, and explore available endpoints."
   },

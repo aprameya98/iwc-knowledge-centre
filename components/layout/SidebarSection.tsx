@@ -10,8 +10,15 @@ interface SidebarSectionProps {
   currentPath: string;
 }
 
+function sectionContainsPath(section: NavSection, path: string): boolean {
+  if (section.groups) {
+    return section.groups.some(g => g.items.some(item => item.href === path));
+  }
+  return section.items?.some(item => item.href === path) ?? false;
+}
+
 export default function SidebarSection({ section, currentPath }: SidebarSectionProps) {
-  const isActive = section.items.some(item => item.href === currentPath);
+  const isActive = sectionContainsPath(section, currentPath);
   const [isOpen, setIsOpen] = useState(isActive);
 
   useEffect(() => {
@@ -48,19 +55,43 @@ export default function SidebarSection({ section, currentPath }: SidebarSectionP
         id={`section-${section.slug}`}
         style={{
           overflow: 'hidden',
-          maxHeight: isOpen ? '2000px' : '0',
-          transition: 'max-height 200ms ease',
+          maxHeight: isOpen ? '4000px' : '0',
+          transition: 'max-height 250ms ease',
         }}
       >
-        <div className="pl-1 pb-1">
-          {section.items.map((item) => (
-            <SidebarItem
-              key={item.href}
-              item={item}
-              isActive={currentPath === item.href}
-            />
-          ))}
-        </div>
+        {section.groups ? (
+          // Grouped layout: render sub-section labels + items
+          <div className="pl-1 pb-1">
+            {section.groups.map(group => (
+              <div key={group.slug} className="mb-0.5">
+                <p
+                  className="px-3 pt-2.5 pb-1 text-[10px] font-semibold uppercase"
+                  style={{ color: '#3D3D3D', letterSpacing: '0.08em' }}
+                >
+                  {group.label}
+                </p>
+                {group.items.map(item => (
+                  <SidebarItem
+                    key={item.href}
+                    item={item}
+                    isActive={currentPath === item.href}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+        ) : (
+          // Flat layout
+          <div className="pl-1 pb-1">
+            {section.items?.map(item => (
+              <SidebarItem
+                key={item.href}
+                item={item}
+                isActive={currentPath === item.href}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

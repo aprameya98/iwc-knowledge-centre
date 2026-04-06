@@ -4,12 +4,27 @@ export type NavItem = {
   description?: string;
 };
 
+export type NavGroup = {
+  label: string;
+  slug: string;
+  items: NavItem[];
+};
+
 export type NavSection = {
   label: string;
   slug: string;
   description?: string;
-  items: NavItem[];
+  items?: NavItem[];
+  groups?: NavGroup[];
 };
+
+// Helper: get all items from a section (flat or grouped)
+function getSectionItems(section: NavSection): NavItem[] {
+  if (section.groups) {
+    return section.groups.flatMap(g => g.items);
+  }
+  return section.items ?? [];
+}
 
 export const navigation: NavSection[] = [
   {
@@ -50,17 +65,46 @@ export const navigation: NavSection[] = [
     label: "Issuance with Credence",
     slug: "platform",
     description: "Issuance with Credence admin and platform management",
-    items: [
-      { title: "Dashboard", href: "/platform/dashboard", description: "Platform overview and quick actions" },
-      { title: "Tenants", href: "/platform/tenants", description: "Multi-tenant configuration and isolation" },
-      { title: "Issuers", href: "/platform/issuers", description: "Issuer management and configuration" },
-      { title: "Templates", href: "/platform/templates", description: "Credential template management" },
-      { title: "ID Applications", href: "/platform/id-applications", description: "Application tracking and management" },
-      { title: "Digital Credentials", href: "/platform/digital-credentials", description: "Issued credential management" },
-      { title: "Trust Management", href: "/platform/trust-management", description: "Trust framework configuration" },
-      { title: "Analytics", href: "/platform/analytics", description: "Platform analytics and reporting" },
-      { title: "API Explorer", href: "/platform/api-explorer", description: "Interactive API reference" },
-      { title: "Settings", href: "/platform/settings", description: "Global platform configuration" },
+    groups: [
+      {
+        label: "Solution Overview",
+        slug: "solution-overview",
+        items: [
+          { title: "Overview", href: "/platform/solution-overview/overview", description: "What IwC is and its role in the Credence ID ecosystem" },
+          { title: "Architecture", href: "/platform/solution-overview/architecture", description: "Core components and how it all flows" },
+          { title: "Credential Template Designer", href: "/platform/solution-overview/credential-template-designer", description: "Four-step guided workflow to define credential types" },
+          { title: "Credential Data Model", href: "/platform/solution-overview/credential-data-model", description: "Formats, namespaces, derived attributes, and status" },
+          { title: "Issuance Flows", href: "/platform/solution-overview/issuance-flows", description: "Standard, deferred, and parallel issuance sequences" },
+          { title: "Cryptographic Signing & Key Management", href: "/platform/solution-overview/cryptographic-signing", description: "Per-claim hashing, HSM signing, and PKI trust chain" },
+          { title: "Credential Lifecycle Management", href: "/platform/solution-overview/credential-lifecycle", description: "Activation, renewal, replacement, and revocation" },
+          { title: "Credential Binding", href: "/platform/solution-overview/credential-binding", description: "Case, physical card, and device-level binding" },
+          { title: "Status Change Management", href: "/platform/solution-overview/status-change-management", description: "How status propagates to wallets and verifiers" },
+          { title: "Multi-Standard & Interoperability", href: "/platform/solution-overview/multi-standard-interoperability", description: "One data model, two formats, open ecosystem" },
+          { title: "Analytics Dashboard", href: "/platform/solution-overview/analytics", description: "Real-time KPIs and program health visibility" },
+          { title: "Integration & APIs", href: "/platform/solution-overview/integration-apis", description: "Issuance trigger, data ingestion, and status sync APIs" },
+          { title: "Deployment & Operations", href: "/platform/solution-overview/deployment-operations", description: "Hosting options, environments, and 24/7 operations" },
+          { title: "Scalability & Performance", href: "/platform/solution-overview/scalability-performance", description: "Throughput, availability, and proven scale metrics" },
+          { title: "Security & Compliance", href: "/platform/solution-overview/security-compliance", description: "Data protection, NIST alignment, and FIPS compliance" },
+          { title: "Supported Standards Reference", href: "/platform/solution-overview/supported-standards", description: "Full list of supported standards and protocols" },
+          { title: "Roadmap", href: "/platform/solution-overview/roadmap", description: "FIDO2/WebAuthn, post-quantum cryptography, and OS wallet integration" },
+        ]
+      },
+      {
+        label: "IwC Portal",
+        slug: "iwc-portal",
+        items: [
+          { title: "Dashboard", href: "/platform/iwc-portal/dashboard", description: "Platform overview and quick actions" },
+          { title: "Tenants", href: "/platform/iwc-portal/tenants", description: "Multi-tenant configuration and isolation" },
+          { title: "Issuers", href: "/platform/iwc-portal/issuers", description: "Issuer management and configuration" },
+          { title: "Templates", href: "/platform/iwc-portal/templates", description: "Credential template management" },
+          { title: "ID Applications", href: "/platform/iwc-portal/id-applications", description: "Application tracking and management" },
+          { title: "Digital Credentials", href: "/platform/iwc-portal/digital-credentials", description: "Issued credential management" },
+          { title: "Trust Management", href: "/platform/iwc-portal/trust-management", description: "Trust framework configuration" },
+          { title: "Analytics", href: "/platform/iwc-portal/analytics", description: "Platform analytics and reporting" },
+          { title: "API Explorer", href: "/platform/iwc-portal/api-explorer", description: "Interactive API reference" },
+          { title: "Settings", href: "/platform/iwc-portal/settings", description: "Global platform configuration" },
+        ]
+      },
     ]
   },
   {
@@ -120,7 +164,7 @@ export const navigation: NavSection[] = [
 ];
 
 export function getFlatNavItems(): NavItem[] {
-  return navigation.flatMap(section => section.items);
+  return navigation.flatMap(section => getSectionItems(section));
 }
 
 export function getPrevNext(href: string): { prev: NavItem | null; next: NavItem | null } {
@@ -138,11 +182,24 @@ export function getBreadcrumb(href: string): Array<{ title: string; href: string
     { title: "IwC Knowledge Base", href: "/home" }
   ];
   for (const section of navigation) {
-    for (const item of section.items) {
-      if (item.href === href) {
-        crumbs.push({ title: section.label, href: "#" });
-        crumbs.push({ title: item.title, href: item.href });
-        return crumbs;
+    if (section.groups) {
+      for (const group of section.groups) {
+        for (const item of group.items) {
+          if (item.href === href) {
+            crumbs.push({ title: section.label, href: "#" });
+            crumbs.push({ title: group.label, href: "#" });
+            crumbs.push({ title: item.title, href: item.href });
+            return crumbs;
+          }
+        }
+      }
+    } else {
+      for (const item of section.items ?? []) {
+        if (item.href === href) {
+          crumbs.push({ title: section.label, href: "#" });
+          crumbs.push({ title: item.title, href: item.href });
+          return crumbs;
+        }
       }
     }
   }
@@ -151,7 +208,7 @@ export function getBreadcrumb(href: string): Array<{ title: string; href: string
 
 export function getActiveSection(href: string): NavSection | null {
   for (const section of navigation) {
-    for (const item of section.items) {
+    for (const item of getSectionItems(section)) {
       if (item.href === href) return section;
     }
   }

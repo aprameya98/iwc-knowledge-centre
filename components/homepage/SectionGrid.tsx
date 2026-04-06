@@ -42,7 +42,7 @@ export default function SectionGrid() {
           return (
             <Link
               key={section.slug}
-              href={section.items[0].href}
+              href={section.groups ? section.groups[0].items[0].href : (section.items?.[0].href ?? '#')}
               className="group flex items-start gap-4 p-5 rounded-xl border no-underline transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
               style={{
                 borderColor: '#E8E8E6',
