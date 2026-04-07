@@ -75,21 +75,6 @@ export const navigation: NavSection[] = [
         ],
       },
       {
-        label: 'IwC Portal',
-        slug: 'iwc-portal',
-        items: [
-          { title: 'Creating Tenants', href: '/platform/iwc-portal/tenants', description: 'Multi-tenant configuration and isolation' },
-          { title: 'Creating Issuers', href: '/platform/iwc-portal/issuers', description: 'Issuer management and configuration' },
-          { title: 'Creating Credential Templates', href: '/platform/iwc-portal/templates', description: 'Credential template management' },
-          { title: 'Viewing ID Applications', href: '/platform/iwc-portal/id-applications', description: 'Application tracking and management' },
-          { title: 'Managing issued Digital Credentials', href: '/platform/iwc-portal/digital-credentials', description: 'Issued credential management' },
-          { title: 'Trust Management', href: '/platform/iwc-portal/trust-management', description: 'Trust framework configuration' },
-          { title: 'Viewing Analytics', href: '/platform/iwc-portal/analytics', description: 'Platform analytics and reporting' },
-          { title: 'API Explorer', href: '/platform/iwc-portal/api-explorer', description: 'Interactive API reference' },
-          { title: 'Settings', href: '/platform/iwc-portal/settings', description: 'Global platform configuration' },
-        ],
-      },
-      {
         label: 'Credential Solution',
         slug: 'credential-solution',
         items: [
@@ -139,6 +124,22 @@ export const navigation: NavSection[] = [
           },
         ],
       },
+    ],
+  },
+  {
+    label: 'IwC Portal',
+    slug: 'iwc-portal',
+    description: 'Manage tenants, issuers, templates, credentials, and platform settings',
+    items: [
+      { title: 'Creating Tenants', href: '/platform/iwc-portal/tenants', description: 'Multi-tenant configuration and isolation' },
+      { title: 'Creating Issuers', href: '/platform/iwc-portal/issuers', description: 'Issuer management and configuration' },
+      { title: 'Creating Credential Templates', href: '/platform/iwc-portal/templates', description: 'Credential template management' },
+      { title: 'Viewing ID Applications', href: '/platform/iwc-portal/id-applications', description: 'Application tracking and management' },
+      { title: 'Managing issued Digital Credentials', href: '/platform/iwc-portal/digital-credentials', description: 'Issued credential management' },
+      { title: 'Trust Management', href: '/platform/iwc-portal/trust-management', description: 'Trust framework configuration' },
+      { title: 'Viewing Analytics', href: '/platform/iwc-portal/analytics', description: 'Platform analytics and reporting' },
+      { title: 'API Explorer', href: '/platform/iwc-portal/api-explorer', description: 'Interactive API reference' },
+      { title: 'Settings', href: '/platform/iwc-portal/settings', description: 'Global platform configuration' },
     ],
   },
   {
