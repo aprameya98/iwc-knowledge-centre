@@ -42,7 +42,7 @@ export default function Sidebar({ isOpen = true, onClose }: SidebarProps) {
           <div className="flex-1 min-w-0">
             <Link href="https://credenceid.com" className="block" aria-label="Credence ID website">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/CID_Default_Logo_1.png" alt="Credence ID" className="h-7 w-auto" style={{ borderRadius: '4px' }} />
+              <img src="/CID_Default_Logo_WhiteText.svg" alt="Credence ID" className="h-7 w-auto" />
             </Link>
             <Link href="/home" className="block mt-2 no-underline group" aria-label="Go to Knowledge Centre home">
               <p className="text-xs leading-tight transition-colors duration-100" style={{ color: 'rgba(255,255,255,0.55)', fontWeight: 500, letterSpacing: '0.02em' }}>
