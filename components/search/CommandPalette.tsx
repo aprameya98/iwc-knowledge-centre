@@ -84,7 +84,7 @@ export default function CommandPalette() {
   };
 
   const suggestedLinks = [
-    { title: 'Digital Credentials 101', href: '/learn/digital-credentials-101', section: 'Learn' },
+    { title: 'Digital Credentials 101', href: '/learn/digital-credentials-101', section: 'Learn Digital ID' },
     { title: 'How IwC Works', href: '/docs/identity-verification/product-guide/how-it-works', section: 'Identity Verification (IDV)' },
     { title: 'Using the Wallet App', href: '/holder/enrollment/using-wallet-app', section: 'Credence ID Wallet App' },
   ];

@@ -221,7 +221,7 @@ export default function HomePage() {
               color: '#f1592b',
               bg: '#fff8f6',
               border: '#f1592b',
-              label: 'Learn',
+              label: 'Learn Digital ID',
               desc: 'Foundational concepts in digital identity — standards, terminology, and how it all fits together.',
               href: '/learn/digital-credentials-101',
             },

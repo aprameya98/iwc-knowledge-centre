@@ -143,7 +143,7 @@ export const navigation: NavSection[] = [
     ],
   },
   {
-    label: 'Learn',
+    label: 'Learn Digital ID',
     slug: 'learn',
     description: 'Educational resources about digital identity',
     groups: [
