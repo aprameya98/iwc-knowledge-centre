@@ -1,168 +1,30 @@
 import type { SearchItem } from '../lib/search';
 
 export const searchIndex: SearchItem[] = [
-  // Identity Verification (IDV) - Product Guide
+  // Identity Verification (IDV)
   {
-    title: "IwC Product Overview",
-    href: "/docs/identity-verification/product-guide/overview",
+    title: "Overview & How It Works",
+    href: "/docs/identity-verification/overview",
     section: "Identity Verification (IDV)",
-    content: "Issuance with Credence (IwC) is Credence ID's identity verification and credential issuance platform. It accepts enrollment submissions, runs automated identity verification checks, enables human reviewer adjudication, and triggers credential issuance upon approval. IwC is designed for enterprise-scale deployments and supports multi-tenant configurations for different issuing organizations."
+    content: "IDV is the identity proofing pipeline within IwC. It runs six automated checks in parallel — OCR, biometric match, liveness detection, document authentication, SOR check, and fraud check — typically completing in 5 to 15 seconds. After approval the issuance service assembles a signed credential and delivers it to the holder wallet via OpenID4VCI."
   },
   {
-    title: "How IwC Works",
-    href: "/docs/identity-verification/product-guide/how-it-works",
+    title: "Automated Checks",
+    href: "/docs/identity-verification/automated-checks",
     section: "Identity Verification (IDV)",
-    content: "IwC processes each enrollment through six automated checks: OCR extracts text from documents, biometric matching compares the selfie to the ID photo, liveness detection confirms a live person is present, document authentication validates the document's security features, SOR check validates against the system of record, and fraud check screens for known fraud patterns. Reviewers then make approve or reject decisions based on the automated results."
+    content: "IDV runs six checks on every submission in parallel. OCR extracts VIZ and MRZ fields with per-field confidence scores. Biometric match compares document portrait to selfie using a NIST FRVT Top 2 model. Liveness detection combines passive image analysis with optional active challenge-response certified to ISO IEC 30107-3 iBeta Level 2. Document authentication runs visual forensic inspection, data extraction, cross-data validation, and consistency checking. The SOR check validates attributes against the issuer's authoritative data source. The fraud check runs biometric deduplication, document screening, and machine learning fraud models."
   },
   {
-    title: "Automated Checks Overview",
-    href: "/docs/identity-verification/product-guide/automated-checks/overview",
+    title: "Verification Deep Dive",
+    href: "/docs/identity-verification/verification-deep-dive",
     section: "Identity Verification (IDV)",
-    content: "IwC runs six automated checks on every enrollment submission: OCR, Biometric Match, Liveness Detection, Document Authentication, SOR Check, and Fraud Check. Each check produces a pass, fail, or review result that is surfaced to the human reviewer in the dashboard."
+    content: "Technical detail on document authentication and biometric verification. Document authentication covers visual and forensic inspection of security features, VIZ and MRZ data extraction, cross-data validation using ICAO 9303 rules and check digit validation, document consistency checking against 1500 or more reference templates, and NFC chip reading for ePassports. Biometric verification covers passive liveness analysis of texture depth and reflection, active liveness challenge-response, face matching using deep convolutional neural networks with cosine similarity scoring, and certifications including NIST FRVT Top 2 and ISO IEC 30107-3 iBeta Level 2."
   },
   {
-    title: "OCR Check",
-    href: "/docs/identity-verification/product-guide/automated-checks/ocr",
+    title: "Review Dashboard",
+    href: "/docs/identity-verification/review-dashboard",
     section: "Identity Verification (IDV)",
-    content: "The OCR check uses optical character recognition to extract text from the submitted identity document. It reads all fields including name, date of birth, document number, expiry date, address, and MRZ data. The extracted text is validated for format correctness and used in subsequent cross-data validation checks."
-  },
-  {
-    title: "Biometric Match Check",
-    href: "/docs/identity-verification/product-guide/automated-checks/biometric-match",
-    section: "Identity Verification (IDV)",
-    content: "The biometric match check performs a 1:1 facial comparison between the portrait photo extracted from the identity document and the live selfie submitted during enrollment. The system produces a similarity score. Scores above the configured threshold result in a pass. The technology is NIST-ranked and ISO/IEC 30107-3 iBeta Level 2 certified."
-  },
-  {
-    title: "Liveness Detection",
-    href: "/docs/identity-verification/product-guide/automated-checks/liveness-detection",
-    section: "Identity Verification (IDV)",
-    content: "Liveness detection ensures that the selfie submitted during enrollment was captured from a real, live person rather than a photograph, screen, or mask. IwC supports both passive liveness (analysis of a single selfie image) and active liveness (challenge-response interaction). The dual-layer approach provides the highest level of spoof resistance."
-  },
-  {
-    title: "Document Authentication Check",
-    href: "/docs/identity-verification/product-guide/automated-checks/document-authentication",
-    section: "Identity Verification (IDV)",
-    content: "Document authentication verifies that the submitted identity document is genuine and unaltered. It analyzes visual and forensic security features, extracts and cross-validates data from multiple zones (VIZ, MRZ, barcode), and checks structural consistency. The system supports 1,500+ document types from 200+ countries."
-  },
-  {
-    title: "SOR Check",
-    href: "/docs/identity-verification/product-guide/automated-checks/sor-check",
-    section: "Identity Verification (IDV)",
-    content: "The System of Record (SOR) check validates the applicant's identity against an authoritative backend database. For enterprise deployments, this may be an HR database, government registry, or member database. IwC provides API-based SOR integration that allows the platform to confirm that the applicant is who they claim to be according to the authoritative source."
-  },
-  {
-    title: "Fraud Check",
-    href: "/docs/identity-verification/product-guide/automated-checks/fraud-check",
-    section: "Identity Verification (IDV)",
-    content: "The fraud check screens each enrollment submission against known fraud patterns, duplicate detection, and risk signals. It identifies submissions that match previously flagged documents or biometrics, detects injection attacks and synthetic identity fraud, and flags high-risk submissions for additional human review."
-  },
-  {
-    title: "Document Authentication: How It Works",
-    href: "/docs/identity-verification/product-guide/document-authentication-deep-dive/how-it-works",
-    section: "Identity Verification (IDV)",
-    content: "Document authentication in IwC uses a four-layer verification approach: visual and forensic inspection of security features, data extraction from all document zones, cross-data validation between zones, and document consistency checks. Together these layers establish high confidence that a document is genuine and unaltered."
-  },
-  {
-    title: "Visual & Forensic Inspection",
-    href: "/docs/identity-verification/product-guide/document-authentication-deep-dive/visual-forensic-inspection",
-    section: "Identity Verification (IDV)",
-    content: "Visual and forensic inspection analyzes the submitted document image for security features including holograms, microprinting, UV-reactive elements, security threads, watermarks, and color-shifting ink. The system uses trained models to detect the presence and correctness of these features for the specific document type."
-  },
-  {
-    title: "Data Extraction",
-    href: "/docs/identity-verification/product-guide/document-authentication-deep-dive/data-extraction",
-    section: "Identity Verification (IDV)",
-    content: "Data extraction reads information from the three document data zones: the Visual Inspection Zone (VIZ) containing human-readable fields, the Machine Readable Zone (MRZ) at the bottom of travel documents, and 1D/2D barcodes on modern driver's licenses and ID cards. All extracted data is normalized and stored for cross-validation."
-  },
-  {
-    title: "Cross-Data Validation",
-    href: "/docs/identity-verification/product-guide/document-authentication-deep-dive/cross-data-validation",
-    section: "Identity Verification (IDV)",
-    content: "Cross-data validation compares the data extracted from different document zones to confirm consistency. For example, the name and date of birth in the VIZ must match the MRZ. Document number and expiry date must be consistent across all zones. Discrepancies between zones indicate potential tampering or forgery."
-  },
-  {
-    title: "Document Consistency Check",
-    href: "/docs/identity-verification/product-guide/document-authentication-deep-dive/document-consistency-check",
-    section: "Identity Verification (IDV)",
-    content: "The document consistency check validates that the physical layout, typography, and field placement of the submitted document matches the expected template for that document type. Structural anomalies such as misaligned fields, incorrect font usage, or wrong background patterns flag the document for review."
-  },
-  {
-    title: "Supported Documents",
-    href: "/docs/identity-verification/product-guide/document-authentication-deep-dive/supported-documents",
-    section: "Identity Verification (IDV)",
-    content: "IwC supports over 1,500 identity document types from more than 200 countries and territories. This includes national identity cards, passports, driver's licenses, residence permits, and travel documents. The Philippines national eID (PhilID) is fully supported with enhanced validation for its specific security features."
-  },
-  {
-    title: "Biometric Verification: How It Works",
-    href: "/docs/identity-verification/product-guide/biometric-verification-deep-dive/how-it-works",
-    section: "Identity Verification (IDV)",
-    content: "IwC biometric verification uses a four-step process: selfie capture, dual-layer liveness detection (passive and active), 1:1 biometric matching against the document portrait, and verification result. The dual-layer liveness approach combines passive analysis with active challenge-response to provide the highest anti-spoofing protection."
-  },
-  {
-    title: "Passive Liveness Detection",
-    href: "/docs/identity-verification/product-guide/biometric-verification-deep-dive/passive-liveness",
-    section: "Identity Verification (IDV)",
-    content: "Passive liveness detection analyzes a single selfie image to determine whether it was captured from a live person or from a spoof artifact such as a printed photograph, digital screen, or 3D mask. The analysis uses texture, depth, and reflection cues invisible to the human eye. No user action is required."
-  },
-  {
-    title: "Active Liveness Detection",
-    href: "/docs/identity-verification/product-guide/biometric-verification-deep-dive/active-liveness",
-    section: "Identity Verification (IDV)",
-    content: "Active liveness detection presents the user with a challenge that requires real-time response, such as turning their head, blinking, or following an on-screen prompt. This makes it impossible for a static photo or pre-recorded video to pass. Active liveness is combined with passive liveness for the highest confidence level."
-  },
-  {
-    title: "Biometric Matching",
-    href: "/docs/identity-verification/product-guide/biometric-verification-deep-dive/biometric-matching",
-    section: "Identity Verification (IDV)",
-    content: "Biometric matching performs a 1:1 facial comparison between two images: the portrait extracted from the identity document and the live selfie captured during enrollment. The comparison uses deep learning face recognition models to generate a similarity score. The threshold for passing is configurable per deployment."
-  },
-  {
-    title: "Biometric Certifications",
-    href: "/docs/identity-verification/product-guide/biometric-verification-deep-dive/certifications",
-    section: "Identity Verification (IDV)",
-    content: "Credence ID biometric technology holds NIST FRVT Top 2 ranking for facial recognition accuracy, ISO/IEC 30107-3 iBeta Level 2 certification for liveness detection, and supports adaptive liveness combining passive and active detection methods. These certifications represent the highest standards in the identity verification industry."
-  },
-  {
-    title: "Review Dashboard Overview",
-    href: "/docs/identity-verification/product-guide/review-dashboard/overview",
-    section: "Identity Verification (IDV)",
-    content: "The IwC Review Dashboard is the interface used by enterprise staff to adjudicate enrollment applications. It presents the automated check results alongside the applicant's submitted documents and biometric data, enabling reviewers to make informed approve or reject decisions efficiently."
-  },
-  {
-    title: "Applicant Information Panel",
-    href: "/docs/identity-verification/product-guide/review-dashboard/applicant-information",
-    section: "Identity Verification (IDV)",
-    content: "The applicant information panel displays all data extracted from the enrollment submission including personal details from the ID document, the submitted selfie, and metadata about the enrollment session such as submission time, device type, and geographic location."
-  },
-  {
-    title: "Document Trust Factors",
-    href: "/docs/identity-verification/product-guide/review-dashboard/document-trust-factors",
-    section: "Identity Verification (IDV)",
-    content: "The document trust factors section of the dashboard shows the results of all document authentication checks: OCR extraction quality, visual forensic inspection results, MRZ validation, barcode check, cross-data validation, and consistency check. Each factor is shown as pass, fail, or review with supporting detail."
-  },
-  {
-    title: "Biometric Trust Factors",
-    href: "/docs/identity-verification/product-guide/review-dashboard/biometric-trust-factors",
-    section: "Identity Verification (IDV)",
-    content: "The biometric trust factors panel shows the results of liveness detection and face matching. It displays the biometric similarity score, the liveness confidence score, and flags any anomalies detected during biometric processing. Reviewers can see side-by-side comparison of the document portrait and live selfie."
-  },
-  {
-    title: "Making a Decision",
-    href: "/docs/identity-verification/product-guide/review-dashboard/making-a-decision",
-    section: "Identity Verification (IDV)",
-    content: "Reviewers can approve, reject, or escalate each application from the dashboard. Approving triggers the issuance service to create and deliver the credential. Rejecting sends a notification to the applicant with a reason code. Escalating routes the application to a senior reviewer. All decisions are logged in the reviewer action log."
-  },
-  {
-    title: "Reviewer Action Log",
-    href: "/docs/identity-verification/product-guide/review-dashboard/reviewer-action-log",
-    section: "Identity Verification (IDV)",
-    content: "The reviewer action log provides a complete audit trail of all actions taken on each application, including who reviewed it, what checks they performed, what decision was made, and when. The log is immutable and can be exported for compliance and audit purposes."
-  },
-  {
-    title: "Post-Approval",
-    href: "/docs/identity-verification/product-guide/post-approval",
-    section: "Identity Verification (IDV)",
-    content: "After approval, the IwC issuance service creates a cryptographically signed credential and delivers it to the applicant's Credence Wallet. The applicant receives a push notification. The credential is immediately available for use. No further action is required from the applicant."
+    content: "The reviewer dashboard presents every submission as a structured record with applicant information, document trust factors, biometric trust factors, a decision panel, and an immutable reviewer action log. Reviewers can approve reject or escalate. Senior reviewers can override automated decisions with mandatory justification. The audit log is append-only with a minimum five-year retention period and is exportable in JSON or CSV."
   },
   // Platform
   {
