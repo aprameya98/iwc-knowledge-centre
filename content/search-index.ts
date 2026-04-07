@@ -94,13 +94,7 @@ export const searchIndex: SearchItem[] = [
     section: "Credence ID Wallet App",
     content: "To enroll using the Credence Wallet app, download the app, open an enrollment invitation or scan a QR code, follow the document capture steps, take your selfie, and submit. The app guides you through each step with clear instructions."
   },
-  {
-    title: "Using the IDV Browser to Enroll",
-    href: "/holder/enrollment/using-idv-browser",
-    section: "Credence ID Wallet App",
-    content: "The IDV Browser allows enrollment without installing an app. Open the enrollment link in a mobile browser, grant camera permissions, follow the document capture steps, take your selfie, and submit."
-  },
-  {
+{
     title: "Supported Documents for Enrollment",
     href: "/holder/enrollment/supported-documents",
     section: "Credence ID Wallet App",

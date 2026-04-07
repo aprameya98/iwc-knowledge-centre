@@ -109,9 +109,9 @@ export const navigation: NavSection[] = [
         items: [
           { title: 'Overview', href: '/holder/overview', description: 'What the Credence Wallet is and what it does' },
           { title: 'Downloading the App', href: '/holder/downloading-the-app', description: 'Get the Credence Wallet on iOS or Android' },
+          { title: 'Wallet User Journey', href: '/holder/wallet-user-journey', description: 'End-to-end user journey for the Credence ID Wallet' },
           { title: 'Enrollment: Overview', href: '/holder/enrollment/overview', description: 'Introduction to the enrollment process' },
           { title: 'Using the Wallet App', href: '/holder/enrollment/using-wallet-app', description: 'Enroll via the Credence Wallet mobile app' },
-          { title: 'Using IDV Browser', href: '/holder/enrollment/using-idv-browser', description: 'Enroll via web browser' },
           { title: 'Supported Documents', href: '/holder/enrollment/supported-documents', description: 'Which ID documents are accepted' },
           { title: 'Tips for Success', href: '/holder/enrollment/tips-for-success', description: 'Best practices for a successful enrollment' },
           { title: 'Checking Application Status', href: '/holder/enrollment/checking-application-status', description: 'How to track your enrollment status' },
