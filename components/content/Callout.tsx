@@ -3,35 +3,24 @@ import type { ReactNode, ForwardRefExoticComponent, RefAttributes } from 'react'
 
 type CalloutType = 'important' | 'tip' | 'note' | 'warning';
 
-interface CalloutProps {
-  type: CalloutType;
-  children: ReactNode;
-}
-
 type LucideIcon = ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>;
 
-const config: Record<CalloutType, {
-  icon: LucideIcon;
-  label: string;
-  iconColor: string;
-  borderColor: string;
-  bg: string;
-}> = {
-  important: { icon: AlertCircle, label: 'Important', iconColor: '#E85C2C', borderColor: '#E85C2C', bg: '#FFF7F0' },
-  tip: { icon: Lightbulb, label: 'Tip', iconColor: '#2CBFBF', borderColor: '#2CBFBF', bg: '#F0FAFA' },
-  note: { icon: Info, label: 'Note', iconColor: '#6B7280', borderColor: '#D1D5DB', bg: '#F9FAFB' },
-  warning: { icon: AlertTriangle, label: 'Warning', iconColor: '#F59E0B', borderColor: '#F59E0B', bg: '#FFFBEB' },
+const config: Record<CalloutType, { icon: LucideIcon; label: string; iconColor: string; borderColor: string; bg: string; labelColor: string }> = {
+  important: { icon: AlertCircle, label: 'Important', iconColor: '#f1592b', borderColor: '#f1592b', bg: '#fff8f6', labelColor: '#f1592b' },
+  tip:       { icon: Lightbulb,   label: 'Tip',       iconColor: '#3ac0c5', borderColor: '#3ac0c5', bg: '#f0fafa', labelColor: '#3ac0c5' },
+  note:      { icon: Info,        label: 'Note',       iconColor: '#1E534B', borderColor: '#1E534B', bg: '#f0f7f5', labelColor: '#1E534B' },
+  warning:   { icon: AlertTriangle, label: 'Warning',  iconColor: '#d97706', borderColor: '#d97706', bg: '#fffbeb', labelColor: '#d97706' },
 };
 
-export default function Callout({ type, children }: CalloutProps) {
-  const { icon: Icon, label, iconColor, borderColor, bg } = config[type];
+export default function Callout({ type, children }: { type: CalloutType; children: ReactNode }) {
+  const { icon: Icon, label, iconColor, borderColor, bg, labelColor } = config[type];
   return (
-    <div className="rounded-lg p-4 my-4" style={{ backgroundColor: bg, borderLeft: `3px solid ${borderColor}` }} role="note" aria-label={`${label}: `}>
+    <div className="rounded-lg p-4 my-5" style={{ backgroundColor: bg, borderLeft: `3px solid ${borderColor}` }} role="note" aria-label={label}>
       <div className="flex items-start gap-2.5">
         <Icon size={16} color={iconColor} style={{ marginTop: '2px', flexShrink: 0 }} />
         <div>
-          <span className="text-sm font-semibold mr-1.5" style={{ color: iconColor }}>{label}.</span>
-          <span className="text-sm" style={{ color: '#374151', lineHeight: '1.6' }}>{children}</span>
+          <span className="text-sm font-bold mr-1.5" style={{ color: labelColor }}>{label}.</span>
+          <span className="text-sm" style={{ color: '#434343', lineHeight: 1.65 }}>{children}</span>
         </div>
       </div>
     </div>

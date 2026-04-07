@@ -9,24 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brand-orange': '#E85C2C',
-        'brand-teal': '#2CBFBF',
-        'brand-green': '#4CAF7D',
-        'bg-sidebar': '#0F0F0F',
-        'bg-sidebar-hover': '#1A1A1A',
-        'text-sidebar': '#9CA3AF',
-        'border-subtle': '#E5E5E3',
+        'brand-orange':     '#f1592b',
+        'brand-teal':       '#3ac0c5',
+        'brand-green-dark': '#1E534B',
+        'brand-green-light':'#78c367',
+        'brand-gray-dark':  '#434343',
+        'brand-gray-light': '#999999',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans:  ["'Helvetica Neue'", 'Helvetica', 'Arial', 'sans-serif'],
       },
-      maxWidth: {
-        'content': '720px',
-        'toc': '200px',
-      },
-      width: {
-        'sidebar': '260px',
-      },
+      width:    { 'sidebar': '260px' },
+      maxWidth: { 'content': '720px', 'toc': '200px' },
     },
   },
   plugins: [],

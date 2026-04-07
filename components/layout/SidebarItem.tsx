@@ -15,9 +15,25 @@ export default function SidebarItem({ item, isActive, indent = 0 }: SidebarItemP
       className={[
         `flex items-center w-full ${pl} pr-3 py-[7px] text-[13px] leading-[1.4] no-underline transition-colors duration-100`,
         isActive
-          ? 'text-white font-medium bg-[#1E1E1E] border-l-[2px] border-[#E85C2C]'
-          : 'text-[#6B7280] font-normal border-l-[2px] border-transparent hover:text-[#D1D5DB] hover:bg-[#181818]',
+          ? 'font-medium border-l-[3px] border-[#f1592b]'
+          : 'font-normal border-l-[3px] border-transparent',
       ].join(' ')}
+      style={isActive
+        ? { color: '#ffffff', backgroundColor: 'rgba(241,89,43,0.18)' }
+        : { color: 'rgba(255,255,255,0.58)' }
+      }
+      onMouseEnter={e => {
+        if (!isActive) {
+          (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)';
+          (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.07)';
+        }
+      }}
+      onMouseLeave={e => {
+        if (!isActive) {
+          (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.58)';
+          (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
+        }
+      }}
       aria-current={isActive ? 'page' : undefined}
     >
       {item.title}
