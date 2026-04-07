@@ -89,12 +89,6 @@ export const searchIndex: SearchItem[] = [
     content: "Enrollment is the first step in getting a digital credential. It involves submitting your identity documents and taking a selfie through either the Credence Wallet app or a web browser. The process typically takes 5-10 minutes."
   },
   {
-    title: "Using the Wallet App to Enroll",
-    href: "/holder/enrollment/using-wallet-app",
-    section: "Credence ID Wallet App",
-    content: "To enroll using the Credence Wallet app, download the app, open an enrollment invitation or scan a QR code, follow the document capture steps, take your selfie, and submit. The app guides you through each step with clear instructions."
-  },
-{
     title: "Supported Documents for Enrollment",
     href: "/holder/enrollment/supported-documents",
     section: "Credence ID Wallet App",

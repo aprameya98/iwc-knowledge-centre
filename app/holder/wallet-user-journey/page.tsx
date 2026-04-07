@@ -1,14 +1,62 @@
 import type { Metadata } from 'next';
 import ArticleWrapper from '@/components/layout/ArticleWrapper';
 import Callout from '@/components/content/Callout';
+import StepFlow from '@/components/content/StepFlow';
+import S1 from '@/public/S1-4.png';
+import S2 from '@/public/S5-7.png';
+import S3 from '@/public/S8-9.png';
+import S4 from '@/public/S10-12.png';
+import S5 from '@/public/S14-15.png';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Wallet User Journey | Credence ID Wallet',
   description: 'The end-to-end user journey for the Credence ID Wallet — from welcome screen to active credential sharing.',
 };
 
+const enrollmentSteps = [
+  {
+    number: 1,
+    title: 'Download the Credence Wallet',
+    description:
+      'Download the Credence Wallet from the App Store (iOS) or Google Play (Android). Search for "Credence Wallet" and install the official app by Credence ID. The app is free to download.',
+  },
+  {
+    number: 2,
+    title: 'Select the Document Type',
+    description:
+      'Based on the requirement of the issuing organisation, the wallet app will display accepted document types. Select one to proceed toward the document image capture process.',
+  },
+  {
+    number: 3,
+    title: 'Capture Images of Your Identity Document',
+    description:
+      'Photograph the front of your identity document. Hold the document flat on a dark surface, ensure all four corners are visible, and avoid glare. Photograph the back when prompted if applicable to your document type.',
+  },
+  {
+    number: 4,
+    title: 'Capture a Live Selfie',
+    description:
+      'Follow the on-screen prompts to take a live selfie. Position your face within the guide oval, ensure even lighting with no strong shadows, and look directly at the camera with a neutral expression. The app captures the image automatically when it detects the correct position.',
+  },
+  {
+    number: 5,
+    title: 'Review and Submit',
+    description:
+      'Review the captured images before submission. Ensure the document text is legible and the selfie is clear. If any image is unsatisfactory, retake it before submitting. Once satisfied, tap Submit to send your application.',
+  },
+  {
+    number: 6,
+    title: 'Await the Decision',
+    description:
+      'After submission you will receive a confirmation notification. Your application will be reviewed by your issuing organisation. You will receive a push notification when a decision has been made. If approved, your digital credential will appear in your wallet automatically.',
+  },
+];
+
 const toc = [
-  { id: 'streamlined-onboarding',   title: 'Streamlined Onboarding',                level: 2 as const },
+  { id: 'before-you-begin',          title: 'Before You Begin',                      level: 2 as const },
+  { id: 'enrollment-steps',          title: 'Enrollment Steps',                      level: 2 as const },
+  { id: 'streamlined-onboarding',    title: 'Streamlined Onboarding',                level: 2 as const },
   { id: 'welcome-experience',        title: 'The Welcome Experience',                level: 3 as const },
   { id: 'selecting-issuer',          title: 'Selecting an Issuer',                   level: 3 as const },
   { id: 'contact-detail-input',      title: 'Contact Detail Input',                  level: 3 as const },
@@ -27,6 +75,7 @@ const toc = [
   { id: 'wallet-dashboard',          title: 'The Wallet Dashboard',                  level: 2 as const },
   { id: 'active-wallet-view',        title: 'The Active Wallet View',                level: 3 as const },
   { id: 'credential-sharing',        title: 'Frictionless Credential Sharing',       level: 3 as const },
+  { id: 'after-submission',          title: 'After Submission',                      level: 2 as const },
 ];
 
 const contentText = `An end-to-end walkthrough of the Credence ID Wallet user experience — from the welcome screen through identity verification and into active credential management. Setting up a secure digital identity should be both safe and frictionless. This page documents the intuitive, user-centric process designed to get individuals verified and ready to go in just a few taps.`;
@@ -43,9 +92,31 @@ export default function Page() {
         Setting up a secure digital identity should be both safe and frictionless. Here is a look at the intuitive, user-centric process designed to get individuals verified and ready to go in just a few taps.
       </p>
 
+      <h2 id="before-you-begin">Before You Begin</h2>
+      <p>
+        Before starting the enrollment flow, ensure you have the following ready:
+      </p>
+      <ul>
+        <li>A compatible smartphone — iOS 14 or later, or Android 8 or later</li>
+        <li>A stable internet connection</li>
+        <li>Your accepted government-issued identity document on hand</li>
+        <li>A clean device camera lens and a well-lit environment</li>
+        <li>Your enrollment invitation from your issuing organisation — you will need to open it during the process</li>
+      </ul>
+
+      <h2 id="enrollment-steps">Enrollment Steps</h2>
+      <p>
+        The full enrollment flow from app download to credential issuance takes approximately 5–10 minutes. Here is the complete sequence at a glance:
+      </p>
+      <StepFlow steps={enrollmentSteps} />
+      <p>
+        The sections below walk through each phase of this journey in detail, explaining the UX design and what to expect at each screen.
+      </p>
+
       {/* ── Section 1: Streamlined Onboarding ── */}
       <h2 id="streamlined-onboarding">Streamlined Onboarding: The Digital Credential Wallet Journey</h2>
-
+      <Image src={S1} alt="" />
+<br></br>
       <h3 id="welcome-experience">01 | The Welcome Experience</h3>
       <p>
         The journey begins with a sleek, dark-themed landing screen that immediately establishes trust and sets a premium tone.
@@ -88,6 +159,8 @@ export default function Page() {
 
       {/* ── Section 2: Document Verification ── */}
       <h2 id="document-verification">Seamless Document Verification: Guiding the User</h2>
+      <Image src={S2} alt="" />
+<br></br>
       <p>
         Once the user&apos;s contact details are confirmed, the app seamlessly transitions into the core identity verification phase. This flow is designed to minimize errors and user frustration by providing crystal-clear instructions and visual aids.
       </p>
@@ -124,6 +197,8 @@ export default function Page() {
 
       {/* ── Section 3: NFC Chip ── */}
       <h2 id="nfc-chip">Advanced Data Extraction: Reading the NFC Chip</h2>
+      <Image src={S3} alt="" />
+<br></br>
       <p>
         Following the visual document scan, the app guides the user through reading the cryptographic data embedded within their e-Passport. Since interacting with NFC hardware can sometimes be confusing for users, this flow is designed with heavy emphasis on clear, physical instructions and real-time feedback.
       </p>
@@ -150,6 +225,8 @@ export default function Page() {
 
       {/* ── Section 4: Biometric ── */}
       <h2 id="biometric-verification">Biometric Liveness &amp; Final Verification: Closing the Loop</h2>
+      <Image src={S4} alt="" />
+<br></br>
       <p>
         The final phase of the onboarding journey ensures that the person holding the device physically matches the verified document. This critical step prioritizes high-security biometric matching while maintaining a friction-free, reassuring user experience.
       </p>
@@ -190,6 +267,8 @@ export default function Page() {
 
       {/* ── Section 5: Wallet Dashboard ── */}
       <h2 id="wallet-dashboard">The Wallet Dashboard: Managing and Sharing Your Identity</h2>
+      <Image src={S5} alt="" />
+<br></br>
       <p>
         Once onboarding and verification are complete, users land in their secure digital wallet. This central hub is designed for quick access, intuitive credential management, and the frictionless sharing of their digital identity.
       </p>
@@ -214,6 +293,17 @@ export default function Page() {
         <li><strong>Clear Context:</strong> Simple microcopy (&ldquo;Show this QR to verifier&rdquo;) removes any guesswork about how to use the feature.</li>
         <li><strong>Quick Dismissal:</strong> A prominent &ldquo;Cancel&rdquo; button sits just below the QR code, giving the user an obvious and easy way to close the sharing view and return to their private dashboard once the verification is complete.</li>
       </ul>
+
+      <h2 id="after-submission">After Submission</h2>
+      <p>
+        Once you have submitted your enrollment, you do not need to take any further action unless prompted. If your issuing organisation requires additional information, you will receive a notification explaining what is needed.
+      </p>
+      <p>
+        Automated reviews are typically completed within minutes; manual reviews may take longer depending on your organisation&apos;s processes. Keep push notifications enabled for the Credence Wallet app so you receive timely updates about your application status.
+      </p>
+      <Callout type="note">
+        If approved, your digital credential will appear in your wallet automatically and will be stored in your device&apos;s secure element. No further action is needed to activate it.
+      </Callout>
     </ArticleWrapper>
   );
 }
