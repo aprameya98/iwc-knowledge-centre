@@ -10,7 +10,7 @@ export default function HomePage() {
     <div style={{ backgroundColor: '#ffffff' }}>
 
       {/* ── Hero — Dark-Green background ─────────────────────────────── */}
-      <div style={{ backgroundColor: '#1E534B', paddingTop: '72px' }}>
+      <div style={{ backgroundColor: '#ffffff', paddingTop: '72px' }}>
         <div className="max-w-3xl mx-auto px-8 sm:px-12 py-16 text-center">
           {/* Logo */}
           <div className="flex justify-center mb-8">
@@ -28,15 +28,14 @@ export default function HomePage() {
             fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
             fontSize: '34px',
             fontWeight: 700,
-            color: '#ffffff',
             lineHeight: 1.2,
             letterSpacing: '-0.02em',
             marginBottom: '1.1rem',
           }}>
             Issuance with Credence (IwC)
           </h1>
-          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75, maxWidth: '480px', margin: '0 auto 2.5rem' }}>
-            Everything you need to understand, deploy, and operate IwC — Credence ID&apos;s platform for issuing and managing secure digital credentials.
+          <p style={{ fontSize: '16px', color: 'rgba(0, 0, 0, 0.72)', lineHeight: 1.75, maxWidth: '480px', margin: '0 auto 2.5rem' }}>
+            Everything you need to understand and operate IwC — Credence ID&apos;s platform for issuing and managing secure digital credentials.
           </p>
 
           {/* Search */}
