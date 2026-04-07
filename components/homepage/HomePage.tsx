@@ -112,7 +112,7 @@ export default function HomePage() {
         {/* Four sections divider */}
         <div className="flex items-center gap-3 mb-7">
           <p className="text-xs font-bold uppercase flex-shrink-0" style={{ color: '#1E534B', letterSpacing: '0.1em', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-            Four Sections of IwC
+            Components of IwC
           </p>
           <div className="flex-1 h-[2px]" style={{ backgroundColor: '#3ac0c5' }} />
         </div>

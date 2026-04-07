@@ -61,7 +61,7 @@ export const navigation: NavSection[] = [
         ],
       },
       {
-        label: 'Four Sections of IwC',
+        label: 'Components of IwC',
         slug: 'three-parts-label',
         isLabel: true,
       },

@@ -134,7 +134,7 @@ export default function Page() {
           <strong>Generated:</strong> The date the VICAL was last compiled.
         </li>
         <li>
-          <strong>Signed By:</strong> The root certificate authority that signed the list (e.g., <strong>IWC Root CA</strong>).
+          <strong>Signed By:</strong> The root certificate authority that signed the list (e.g., <strong>IwC Root CA</strong>).
         </li>
         <li>
           <strong>Entries:</strong> The total number of trusted certificates included.
