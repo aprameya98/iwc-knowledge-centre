@@ -127,7 +127,7 @@ export const navigation: NavSection[] = [
     ],
   },
   {
-    label: 'IwC Portal',
+    label: 'IwC Portal User Guide',
     slug: 'iwc-portal',
     description: 'Manage tenants, issuers, templates, credentials, and platform settings',
     items: [

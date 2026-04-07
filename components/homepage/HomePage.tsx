@@ -135,10 +135,10 @@ export default function HomePage() {
               color: '#1E534B',
               bg: '#f0f7f5',
               borderAccent: '#3ac0c5',
-              label: 'IwC Portal',
+              label: 'IwC Portal User Guide',
               desc: 'The administrative control centre — manage credential templates, issuers, tenants, digital credentials, trust frameworks, and real-time analytics from a single web-based console.',
               href: '/platform/iwc-portal/dashboard',
-              cta: 'Explore IwC Portal',
+              cta: 'Explore IwC Portal User Guide',
             },
             {
               icon: Wallet,
