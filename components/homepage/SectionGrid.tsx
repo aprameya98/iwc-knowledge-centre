@@ -1,25 +1,19 @@
 'use client';
 import Link from 'next/link';
-import { ArrowRight, BookOpen, GitBranch, Package, Wallet, Building2, Smartphone, GraduationCap, type LucideProps } from 'lucide-react';
+import { ArrowRight, BookOpen, GitBranch, Building2, GraduationCap, type LucideProps } from 'lucide-react';
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 import { navigation } from '@/lib/navigation';
 
 type LucideIcon = ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>;
 
 const icons: Record<string, LucideIcon> = {
-  'identity-verification': Package,
   'platform': Building2,
-  'holder': Wallet,
-  'sdk': Smartphone,
   'lifecycle': GitBranch,
   'learn': GraduationCap,
 };
 
 const sectionColors: Record<string, { bg: string; icon: string }> = {
-  'identity-verification': { bg: '#FFF4F0', icon: '#E85C2C' },
   'platform': { bg: '#F0F4FF', icon: '#4B6BFB' },
-  'holder': { bg: '#F0FFF8', icon: '#16A34A' },
-  'sdk': { bg: '#FFF8F0', icon: '#D97706' },
   'lifecycle': { bg: '#F8F0FF', icon: '#9333EA' },
   'learn': { bg: '#F0FAFF', icon: '#0EA5E9' },
 };
@@ -42,7 +36,11 @@ export default function SectionGrid() {
           return (
             <Link
               key={section.slug}
-              href={section.groups ? section.groups[0].items[0].href : (section.items?.[0].href ?? '#')}
+              href={
+                section.groups
+                  ? (section.groups[0].items?.[0]?.href ?? section.groups[0].subgroups?.[0]?.items?.[0]?.href ?? '#')
+                  : (section.items?.[0].href ?? '#')
+              }
               className="group flex items-start gap-4 p-5 rounded-xl border no-underline transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
               style={{
                 borderColor: '#E8E8E6',
