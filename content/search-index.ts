@@ -15,12 +15,6 @@ export const searchIndex: SearchItem[] = [
     content: "IDV runs six checks on every submission in parallel. OCR extracts VIZ and MRZ fields with per-field confidence scores. Biometric match compares document portrait to selfie using a NIST FRVT Top 2 model. Liveness detection combines passive image analysis with optional active challenge-response certified to ISO IEC 30107-3 iBeta Level 2. Document authentication runs visual forensic inspection, data extraction, cross-data validation, and consistency checking. The SOR check validates attributes against the issuer's authoritative data source. The fraud check runs biometric deduplication, document screening, and machine learning fraud models."
   },
   {
-    title: "Verification Deep Dive",
-    href: "/docs/identity-verification/verification-deep-dive",
-    section: "Identity Verification (IDV)",
-    content: "Technical detail on document authentication and biometric verification. Document authentication covers visual and forensic inspection of security features, VIZ and MRZ data extraction, cross-data validation using ICAO 9303 rules and check digit validation, document consistency checking against 1500 or more reference templates, and NFC chip reading for ePassports. Biometric verification covers passive liveness analysis of texture depth and reflection, active liveness challenge-response, face matching using deep convolutional neural networks with cosine similarity scoring, and certifications including NIST FRVT Top 2 and ISO IEC 30107-3 iBeta Level 2."
-  },
-  {
     title: "Review Dashboard",
     href: "/docs/identity-verification/review-dashboard",
     section: "Identity Verification (IDV)",

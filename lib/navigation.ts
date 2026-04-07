@@ -78,7 +78,6 @@ export const navigation: NavSection[] = [
         items: [
           { title: 'Overview & How It Works', href: '/docs/identity-verification/overview', description: 'What IDV is, the 6-step pipeline, and what happens after approval' },
           { title: 'Automated Checks', href: '/docs/identity-verification/automated-checks', description: 'OCR, biometric match, liveness, document auth, SOR, and fraud checks' },
-          { title: 'Verification Deep Dive', href: '/docs/identity-verification/verification-deep-dive', description: 'Document authentication and biometric verification in technical detail' },
           { title: 'Review Dashboard', href: '/docs/identity-verification/review-dashboard', description: 'Applicant information, trust factors, decision workflow, and audit trail' },
         ],
       },
