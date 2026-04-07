@@ -32,7 +32,7 @@ export default function HomePage() {
             letterSpacing: '-0.02em',
             marginBottom: '1.1rem',
           }}>
-            Issuance with Credence (IwC)
+            Issuance with Credence
           </h1>
           <p style={{ fontSize: '16px', color: 'rgba(0, 0, 0, 0.72)', lineHeight: 1.75, maxWidth: '480px', margin: '0 auto 2.5rem' }}>
             Everything you need to understand and operate IwC — Credence ID&apos;s platform for issuing and managing secure digital credentials.
@@ -109,15 +109,15 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Three parts divider */}
+        {/* Four sections divider */}
         <div className="flex items-center gap-3 mb-7">
           <p className="text-xs font-bold uppercase flex-shrink-0" style={{ color: '#1E534B', letterSpacing: '0.1em', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-            Three Parts of IwC
+            Four Sections of IwC
           </p>
           <div className="flex-1 h-[2px]" style={{ backgroundColor: '#3ac0c5' }} />
         </div>
 
-        {/* Three parts cards */}
+        {/* Four sections cards */}
         <div className="flex flex-col gap-3 mb-12">
           {[
             {
@@ -146,9 +146,19 @@ export default function HomePage() {
               bg: '#f0fafa',
               borderAccent: '#3ac0c5',
               label: 'Credential Solution',
+              desc: 'The credential layer — data models, issuance flows, cryptographic signing, credential lifecycle management, binding, status change management, and multi-standard interoperability.',
+              href: '/platform/solution-overview/credential-data-model',
+              cta: 'Explore Credential Solution',
+            },
+            {
+              icon: IdCard,
+              color: '#1E534B',
+              bg: '#f0f7f5',
+              borderAccent: '#1E534B',
+              label: 'Credence ID Wallet',
               desc: 'The holder-facing layer — the Credence ID Wallet app and the Digital Wallet SDK that brings credential storage, NFC/QR presentation, and full lifecycle management to any mobile application.',
               href: '/holder/overview',
-              cta: 'Explore Credential Solution',
+              cta: 'Explore Credence ID Wallet',
             },
           ].map(({ icon: Icon, color, bg, borderAccent, label, desc, href, cta }) => (
             <Link
