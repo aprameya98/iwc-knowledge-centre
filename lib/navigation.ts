@@ -78,14 +78,13 @@ export const navigation: NavSection[] = [
         label: 'IwC Portal',
         slug: 'iwc-portal',
         items: [
-          { title: 'Dashboard', href: '/platform/iwc-portal/dashboard', description: 'Platform overview and quick actions' },
-          { title: 'Tenants', href: '/platform/iwc-portal/tenants', description: 'Multi-tenant configuration and isolation' },
-          { title: 'Issuers', href: '/platform/iwc-portal/issuers', description: 'Issuer management and configuration' },
-          { title: 'Templates', href: '/platform/iwc-portal/templates', description: 'Credential template management' },
-          { title: 'ID Applications', href: '/platform/iwc-portal/id-applications', description: 'Application tracking and management' },
-          { title: 'Digital Credentials', href: '/platform/iwc-portal/digital-credentials', description: 'Issued credential management' },
+          { title: 'Creating Tenants', href: '/platform/iwc-portal/tenants', description: 'Multi-tenant configuration and isolation' },
+          { title: 'Creating Issuers', href: '/platform/iwc-portal/issuers', description: 'Issuer management and configuration' },
+          { title: 'Creating Credential Templates', href: '/platform/iwc-portal/templates', description: 'Credential template management' },
+          { title: 'Viewing ID Applications', href: '/platform/iwc-portal/id-applications', description: 'Application tracking and management' },
+          { title: 'Managing issued Digital Credentials', href: '/platform/iwc-portal/digital-credentials', description: 'Issued credential management' },
           { title: 'Trust Management', href: '/platform/iwc-portal/trust-management', description: 'Trust framework configuration' },
-          { title: 'Analytics', href: '/platform/iwc-portal/analytics', description: 'Platform analytics and reporting' },
+          { title: 'Viewing Analytics', href: '/platform/iwc-portal/analytics', description: 'Platform analytics and reporting' },
           { title: 'API Explorer', href: '/platform/iwc-portal/api-explorer', description: 'Interactive API reference' },
           { title: 'Settings', href: '/platform/iwc-portal/settings', description: 'Global platform configuration' },
         ],
@@ -104,11 +103,11 @@ export const navigation: NavSection[] = [
         ],
       },
       {
-        label: 'Credence ID Wallet',
+        label: 'Digital ID Wallet',
         slug: 'credence-wallet',
         subgroups: [
           {
-            label: 'Wallet',
+            label: 'Wallet App',
             slug: 'wallet',
             items: [
               { title: 'Overview', href: '/holder/overview', description: 'What the Credence Wallet is and what it does' },
@@ -127,7 +126,7 @@ export const navigation: NavSection[] = [
             ],
           },
           {
-            label: 'Wallet SDK',
+            label: 'Wallet App SDK',
             slug: 'wallet-sdk',
             items: [
               { title: 'SDK Overview', href: '/sdk/overview', description: 'What the SDK is, delivery options, and supported platforms' },
@@ -143,23 +142,28 @@ export const navigation: NavSection[] = [
     ],
   },
   {
-    label: 'Digital ID Lifecycle',
-    slug: 'lifecycle',
-    description: 'The four stages every digital credential passes through',
-    items: [
-      { title: 'Overview', href: '/lifecycle/overview', description: 'The four stages of a digital credential' },
-      { title: 'Stage 1: Enrollment', href: '/lifecycle/stage-1-enrollment', description: 'Capturing identity data and documents' },
-      { title: 'Stage 2: Issuance', href: '/lifecycle/stage-2-issuance', description: 'Verification, approval, and credential creation' },
-      { title: 'Stage 3: Holding', href: '/lifecycle/stage-3-holding', description: 'Storing and managing credentials in the wallet' },
-      { title: 'Stage 4: Verification', href: '/lifecycle/stage-4-verification', description: 'Presenting credentials to verifying parties' },
-    ],
-  },
-  {
     label: 'Learn',
     slug: 'learn',
     description: 'Educational resources about digital identity',
-    items: [
-      { title: 'Digital Credentials 101', href: '/learn/digital-credentials-101', description: 'Introduction to digital credentials and identity' },
+    groups: [
+      {
+        label: 'Digital Credentials',
+        slug: 'digital-credentials-learn',
+        items: [
+          { title: 'Digital Credentials 101', href: '/learn/digital-credentials-101', description: 'Introduction to digital credentials and identity' },
+        ],
+      },
+      {
+        label: 'Digital ID Lifecycle',
+        slug: 'lifecycle',
+        items: [
+          { title: 'Overview', href: '/lifecycle/overview', description: 'The four stages of a digital credential' },
+          { title: 'Stage 1: Enrollment', href: '/lifecycle/stage-1-enrollment', description: 'Capturing identity data and documents' },
+          { title: 'Stage 2: Issuance', href: '/lifecycle/stage-2-issuance', description: 'Verification, approval, and credential creation' },
+          { title: 'Stage 3: Holding', href: '/lifecycle/stage-3-holding', description: 'Storing and managing credentials in the wallet' },
+          { title: 'Stage 4: Verification', href: '/lifecycle/stage-4-verification', description: 'Presenting credentials to verifying parties' },
+        ],
+      },
     ],
   },
 ];

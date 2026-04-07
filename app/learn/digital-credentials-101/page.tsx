@@ -71,7 +71,6 @@ How do digital credentials comply with GDPR and CCPA? Selective Disclosure addre
 What is the Digital Divide? The risk of excluding populations without smartphones or internet access. Solutions include Hardware Smart Cards, Delegated Guardianship, and Verifiable Paper with cryptographically signed QR codes.
 How do machine-readable governance files automate trust decisions? Trust Registries translate Trust Frameworks into code, allowing a Verifier's software to instantly query an API and get an automated confirmation that an Issuer's DID is on the government-authorized list.
 What is the role of standards organizations like OpenID Foundation and W3C? They create open, royalty-free blueprints ensuring a wallet built by a startup uses the same cryptographic data structures as one built by a trillion-dollar tech company, preventing proprietary walled gardens.
-How does quantum computing threaten digital identity cryptography? Quantum computers could crack RSA and Elliptic Curve algorithms currently used for digital signatures. The solution is transitioning to Post-Quantum Cryptography being standardized by organizations like NIST.
 Who bears legal liability if a digital credential system is breached? Issuers are liable for fraudulent background checks. Wallet Providers are liable for software vulnerabilities. Verifiers are liable for requesting too much data or failing to secure what users present.
 How will the SSI transition impact the global digital economy? It shifts from platform-centric to user-centric data, drastically lowering business verification costs, eliminating fraud categories, and creating a missing Trust Layer for the internet.
 
@@ -332,11 +331,7 @@ export default function Page() {
         <p>They are the architects ensuring we don&apos;t end up with &quot;walled gardens.&quot; If Apple, Google, and Microsoft all built proprietary digital IDs that couldn&apos;t talk to each other, the system would fail. The W3C, OpenID Foundation, and ISO create the open, royalty-free blueprints ensuring that a wallet built by a startup uses the exact same cryptographic data structures as a wallet built by a trillion-dollar tech giant.</p>
       </Q>
 
-      <Q n={48} q="How might the rise of quantum computing threaten the current cryptographic foundations of DIDs, and what are the solutions?">
-        <p>Current digital signatures rely on public-key cryptography (like RSA or Elliptic Curve algorithms). A sufficiently powerful future quantum computer could easily crack these math problems, forging signatures and destroying trust. The solution is the proactive transition to <strong>Post-Quantum Cryptography (PQC)</strong> — new, highly complex mathematical algorithms currently being standardized by organizations like NIST that are resistant to quantum attacks.</p>
-      </Q>
-
-      <Q n={49} q="Who bears the legal liability if a digital credential system is breached or fails?">
+      <Q n={48} q="Who bears the legal liability if a digital credential system is breached or fails?">
         <p>Generally, liability is distributed based on the Trust Framework:</p>
         <ul>
           <li><strong>Issuers</strong> are liable if they issue a credential based on fraudulent background checks.</li>

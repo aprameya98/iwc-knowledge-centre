@@ -13,7 +13,7 @@ const toc = [
   { id: 'supported-platforms', title: 'Supported Platforms', level: 2 as const },
 ];
 
-const contentText = `The Credence ID Digital Wallet is a cross-platform solution built on Kotlin Multiplatform and the Open Wallet Foundation's multipaz library. It provides a high-level, unified API for credential management, supporting both in-person and online presentation. The wallet is designed to prevent vendor lock-in because cryptographic operations, data handling, and presentation protocols are standards-defined, it seamlessly interoperates with any spec-compliant ecosystem. Delivery options include an embeddable SDK distributed as an aar file for Android and an xcframework file for iOS, and a white-label application ready for app store distribution. Supported platforms are Android 8 and above using Kotlin Multiplatform, Android TEE, and FLAG_SECURE, and iOS 14 and above using Kotlin Multiplatform and the Apple Secure Element.`;
+const contentText = `The Credence ID Digital Wallet is a cross-platform solution built on Kotlin Multiplatform. It provides a high-level, unified API for credential management, supporting both in-person and online presentation. The wallet is designed to prevent vendor lock-in because cryptographic operations, data handling, and presentation protocols are standards-defined, it seamlessly interoperates with any spec-compliant ecosystem. Delivery options include an embeddable SDK distributed as an aar file for Android and an xcframework file for iOS, and a white-label application ready for app store distribution. Supported platforms are Android 8 and above using Kotlin Multiplatform, Android TEE, and FLAG_SECURE, and iOS 14 and above using Kotlin Multiplatform and the Apple Secure Element.`;
 
 export default function Page() {
   return (
@@ -25,7 +25,7 @@ export default function Page() {
     >
       <h2 id="what-is-the-wallet">What Is the Wallet?</h2>
       <p>
-        The Credence ID Digital Wallet is a cross-platform solution built on <strong>Kotlin Multiplatform (KMP)</strong> and the Open Wallet Foundation&apos;s <strong>multipaz</strong> library (fully open-source, Apache 2.0 licensed). It provides a high-level, unified API for credential management, supporting both in-person and online presentation.
+        The Credence ID Digital Wallet is a cross-platform solution built on <strong>Kotlin Multiplatform (KMP)</strong>. It provides a high-level, unified API for credential management, supporting both in-person and online presentation.
       </p>
       <p>
         The wallet is designed to prevent vendor lock-in. Because cryptographic operations, data handling, and presentation protocols are standards-defined, it seamlessly interoperates with any spec-compliant ecosystem — meaning credentials issued through the Credence ID platform can be presented to any ISO 18013-5 or OpenID4VP-compliant verifier, regardless of vendor.

@@ -4,16 +4,15 @@ import Callout from '@/components/content/Callout';
 
 export const metadata: Metadata = {
   title: 'Roadmap | Issuance with Credence Solution Overview',
-  description: 'Upcoming capabilities in IwC: FIDO2/WebAuthn AAL3, post-quantum cryptography, and OS-native wallet integration.',
+  description: 'Upcoming capabilities in IwC: FIDO2/WebAuthn AAL3 and OS-native wallet integration.',
 };
 
 const toc = [
   { id: 'fido2', title: 'FIDO2 / WebAuthn AAL3', level: 2 as const },
-  { id: 'post-quantum', title: 'Post-Quantum Cryptography', level: 2 as const },
   { id: 'os-wallet', title: 'OS-Native Wallet Integration', level: 2 as const },
 ];
 
-const contentText = `The IwC roadmap focuses on three major capability areas. FIDO2 and WebAuthn AAL3 support is targeted for Q3 2026 enabling hardware-bound passkey authentication for the Admin Portal and issuer-facing operations at NIST AAL3. Post-quantum cryptography support is in active development targeting CRYSTALS-Dilithium and CRYSTALS-Kyber algorithms to prepare IwC-issued credentials for the post-quantum era. OS-native wallet integration will extend IwC credential delivery to Apple Wallet and Google Wallet in addition to the Credence ID Digital Wallet and OWF-compatible wallets.`;
+const contentText = `The IwC roadmap focuses on two major capability areas. FIDO2 and WebAuthn AAL3 support is targeted for Q3 2026 enabling hardware-bound passkey authentication for the Admin Portal and issuer-facing operations at NIST AAL3. OS-native wallet integration will extend IwC credential delivery to Apple Wallet and Google Wallet in addition to the Credence ID Digital Wallet and OWF-compatible wallets.`;
 
 export default function Page() {
   return (
@@ -44,31 +43,9 @@ export default function Page() {
         Current Admin Portal authentication already supports MFA at AAL2. The FIDO2/WebAuthn addition extends to AAL3 for high-privilege roles without changing the authentication experience for standard operator roles.
       </p>
 
-      <h2 id="post-quantum">Post-Quantum Cryptography</h2>
-      <p>
-        IwC&apos;s current cryptographic foundation — ECDSA P-256 — is secure against all known classical attacks. However, sufficiently powerful quantum computers are expected to break elliptic curve cryptography using Shor&apos;s algorithm. NIST finalized its first post-quantum cryptography (PQC) standards in 2024, and Credence ID is actively working to integrate them into IwC.
-      </p>
-      <p>
-        The planned PQC integration covers:
-      </p>
-      <ul>
-        <li>
-          <strong>CRYSTALS-Dilithium (ML-DSA):</strong> NIST-standardized lattice-based digital signature algorithm — the primary replacement for ECDSA in credential signing. Dilithium signatures will be embedded in the MSO and W3C VC proof in parallel with the existing ECDSA signature during a transition period.
-        </li>
-        <li>
-          <strong>CRYSTALS-Kyber (ML-KEM):</strong> NIST-standardized key encapsulation mechanism — for protecting session key establishment in the ISO 18013-5 device engagement flow (currently using ECDH X25519).
-        </li>
-        <li>
-          <strong>Hybrid mode:</strong> During the transition period, credentials will carry both classical and post-quantum signatures. Verifiers that support PQC can validate the Dilithium signature; verifiers that do not yet support PQC will continue to validate the ECDSA signature. No credential re-issuance is required when PQC-only mode is activated.
-        </li>
-      </ul>
-      <Callout type="important">
-        Post-quantum readiness requires HSM support for PQC algorithms. AWS CloudHSM support for CRYSTALS-Dilithium is in active development. IwC will activate PQC signing once HSM-level support is certified to the required FIPS validation level.
-      </Callout>
-
       <h2 id="os-wallet">OS-Native Wallet Integration</h2>
       <p>
-        IwC currently delivers credentials to the Credence ID Digital Wallet and any OpenID4VCI-compatible wallet, including OWF multipaz SDK-based implementations. The roadmap extends this to the two dominant OS-native wallet platforms:
+        IwC currently delivers credentials to the Credence ID Digital Wallet and any OpenID4VCI-compatible wallet. The roadmap extends this to the two dominant OS-native wallet platforms:
       </p>
       <ul>
         <li>

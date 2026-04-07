@@ -14,7 +14,7 @@ const toc = [
   { id: 'open-verifiers', title: 'Open Verifier Ecosystem', level: 2 as const },
 ];
 
-const contentText = `IwC is built from the ground up to issue and manage credentials across multiple standards without compromise. A single authoritative data model drives both ISO IEC 18013-5 mDoc and W3C Verifiable Credentials 2.0 output. Identity attributes are defined once and the issuance service constructs both CBOR-encoded mDoc structures and JSON-LD W3C VC structures from the same source. Credential delivery uses OpenID4VCI which is the global open standard for digital credential provisioning supported by the Open Wallet Foundation and all major digital wallet providers. IwC is interoperable with open-source wallet implementations including the OWF multipaz SDK. The verifier ecosystem is equally open with any ISO 18013-5 compliant verifier able to accept mDoc credentials and any W3C VC verifier able to accept the JSON-LD credentials.`;
+const contentText = `IwC is built from the ground up to issue and manage credentials across multiple standards without compromise. A single authoritative data model drives both ISO IEC 18013-5 mDoc and W3C Verifiable Credentials 2.0 output. Identity attributes are defined once and the issuance service constructs both CBOR-encoded mDoc structures and JSON-LD W3C VC structures from the same source. Credential delivery uses OpenID4VCI which is the global open standard for digital credential provisioning supported by the Open Wallet Foundation and all major digital wallet providers. The verifier ecosystem is equally open with any ISO 18013-5 compliant verifier able to accept mDoc credentials and any W3C VC verifier able to accept the JSON-LD credentials.`;
 
 export default function Page() {
   return (
@@ -69,7 +69,7 @@ export default function Page() {
 
       <h2 id="open-wallets">Open Wallet Ecosystem</h2>
       <p>
-        IwC is tested for interoperability with open-source wallet implementations, including the <strong>Open Wallet Foundation (OWF) multipaz SDK</strong>. This means that agencies or programs that choose to deploy their own wallet application — built on the OWF reference implementation — can receive IwC-issued credentials without any custom integration work.
+        IwC is tested for interoperability with open-source wallet implementations built on the Open Wallet Foundation (OWF) reference implementation. Agencies or programs that choose to deploy their own wallet application can receive IwC-issued credentials without any custom integration work.
       </p>
       <p>
         The Credence ID Digital Wallet SDK is available for organizations that want a fully supported, production-ready wallet with hardware-backed security and the full IwC lifecycle integration out of the box. But it is not a requirement. The protocol is open. The ecosystem is open.
